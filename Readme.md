@@ -20,21 +20,23 @@ The project can help enhance the valuable skills(Unity 2D, Reinforcement Learnin
 
 This project provides an opportunity to learn and master **Unity 2D**, a powerful game development engine that offers **intuitive tools and interactive components** for creating visually appealing and engaging game environments. Unity’s flexibility and ease of use make it **an ideal platform for prototyping and experimenting with AI applications**, particularly in reinforcement learning. By using Unity, you gain hands-on experience with its extensive functionality, from scene creation and object manipulation to scripting and asset management.
 
-<img src=".\P1.png" alt="P1" style="zoom:50%;" />
+<img src=".\Materials\P1.png" alt="P1" style="zoom:50%;" />
+
 <center>Fig 1: Unity Engine Startup</center>
 
 #### 1.2.2 Learning, Understanding, and Applying Reinforcement Learning
 
 The project deepens the understanding of **reinforcement learning (RL)** principles, such as how agents interact with their environments and learn optimal behaviors through rewards and penalties. By implementing RL algorithms like **Deep Q-Networks (DQN)**, you gain a solid understanding of key concepts like state-action-reward systems, **exploration-exploitation trade-offs, value functions, and policy optimization.** This knowledge is foundational for applying RL techniques to more complex, real-world problems, where agents must make decisions in dynamic environments.
 
-<img src=".\P2.png" alt="image-20241126142753035" style="zoom:40%;"  />
+<img src=".\Materials\P2.png" alt="image-20241126142753035" style="zoom:40%;"  />
+
 <center>Fig 2: RL Lecture By MIT</center>
 
 #### 1.2.3 Enhancing Conceptual Understanding of RL Applications
 
 Through this project, you deepen your understanding of RL and its real-world applications, which can extend to more advanced technologies, such as **end-to-end autonomous driving systems**. Reinforcement learning is a core technique in training autonomous agents, where decision-making in complex, unpredictable environments is crucial. By training an RL agent in a **game-like environment**, you **gain a conceptual understanding of how such systems can be extended to handle real-world challenges**, providing a foundation for tackling similar problems in autonomous driving, robotics, and other AI-driven technologies in the future.
 
-<img src=".\P3.png" alt="image-20241126143957742" style="zoom:40%;" />
+<img src=".\Materials\P3.png" alt="image-20241126143957742" style="zoom:40%;" />
 
 <center>Fig 3: Autonomous Vehices using End-to-End By MIT</center>
 
@@ -69,7 +71,7 @@ In the Flappy Bird game, the bird experiences **gravity**, which causes it to fa
 
 - **Gravity**: Gravity is handled by Unity's built-in physics engine. You can adjust the gravity scale to control how fast the bird falls. This is done through the **Rigidbody2D.gravityScale** property.
 
-<img src=".\P4.png" alt="image-20241126235615190" style="zoom:50%;" />
+<img src=".\Materials\P4.png" alt="image-20241126235615190" style="zoom:50%;" />
 
 <center>Fig 4: Rigidbody2D Set in Unity</center>
 - **Jump Force**: When the bird "flaps," we apply an upward force to the Rigidbody2D. This force counteracts gravity and makes the bird move upward.
@@ -93,7 +95,7 @@ Collision detection is crucial in determining whether the bird collides with pip
 
 - **Bird Collision**: The bird is assigned a **BoxCollider2D** to detect when it collides with **obstacles**.
 
-<img src=".\P6.png" alt="image-20241127002048884" style="zoom:50%;" />
+<img src=".\Materials\P6.png" alt="image-20241127002048884" style="zoom:50%;" />
 
 <center>Fig 6: Circle Collider 2D Set in Unity</center>
 
@@ -122,7 +124,7 @@ Unity makes it easy to manipulate objects using the **Transform** component whic
 
 - The bird is typically a **sprite **(a bird image) attached to a **GameObject**.
 
-<img src="P7.png" alt="unitytut-birdbody" style="zoom:40%;" />
+<img src=".\Materials\P7.png" alt="unitytut-birdbody" style="zoom:40%;" />
 
 <center>Fig 7: Bird Body in Unity</center>
 
@@ -204,7 +206,7 @@ In Unity, the UI system is based on **Canvas**. All UI elements like buttons, te
 
 ##### (a) Home Scene
 
-<img src=".\P9.png" alt="image-20241127083413899" style="zoom: 67%;" />
+<img src=".\Materials\P9.png" alt="image-20241127083413899" style="zoom: 67%;" />
 
 <center>Fig 9: Home Scene</center>
 
@@ -231,7 +233,7 @@ public class LogicStartScript : MonoBehaviour
 
 ##### (b) In-Game Scene
 
-<img src=".\P10.png" alt="image-20241127083413899" style="zoom: 64%;" />
+<img src=".\Materials\P10.png" alt="image-20241127083413899" style="zoom: 64%;" />
 
 <center>Fig 10: In-Game Scene </center>
 
@@ -241,7 +243,7 @@ public class LogicStartScript : MonoBehaviour
 
 (c) GameOver Scene
 
-<img src=".\P11.png" alt="image-20241127084608691" style="zoom:67%;" />
+<img src=".\Materials\P11.png" alt="image-20241127084608691" style="zoom:67%;" />
 
 <center>Fig 11: GameOver Scene</center>
 
@@ -253,7 +255,7 @@ public class LogicStartScript : MonoBehaviour
 
 **Objective:** Apply reinforcement learning algorithms** (DQN)** to train an agent (the bird) to play the game.
 
-<img src=".\P23.png" alt="image-20241128164931270" style="zoom:30%;" />
+<img src=".\Materials\P23.png" alt="image-20241128164931270" style="zoom:30%;" />
 
 <center>Fig 11: Reinforcement Learning Framework</center>
 
@@ -261,7 +263,7 @@ public class LogicStartScript : MonoBehaviour
 
 This section deals with foundational concepts used in **decision-making under uncertainty**, particularly focusing on **Markov Chains**, **Markov Decision Processes (MDPs)**, and the **Bellman Equation**. 
 
-<img src=".\P25.png" alt="image-20241128171918163" style="zoom:45%;" />
+<img src=".\Materials\P25.png" alt="image-20241128171918163" style="zoom:45%;" />
 
 <center>Fig 11: Stochastic Processes</center>
 
@@ -275,7 +277,7 @@ A **stochastic process** is a collection of random variables indexed by time (or
 
 A **Markov Chain** is a mathematical model used to describe a system that transitions from one state to another over time in a probabilistic manner. The key feature of a Markov Chain is the **Markov Property**, which means that the future state of the system depends only on the current state and **not** on the sequence of events that preceded it.
 
-<img src=".\P24.png" alt="image-20241128171319133" style="zoom:50%;" />
+<img src=".\Materials\P24.png" alt="image-20241128171319133" style="zoom:50%;" />
 
 <center>Fig 11: Markov Chain and Transition Matrix</center>
 
@@ -368,7 +370,7 @@ The MDP framework is designed to provide a simplified representation of key elem
 
 ###### (2) MDPs Framework
 
-<img src=".\P28.png" alt="image-20241128190608942" style="zoom:50%;" />
+<img src=".\Materials\P28.png" alt="image-20241128190608942" style="zoom:50%;" />
 
 <center>Fig 11: MDPs Framework</center>
 
@@ -470,7 +472,7 @@ Understanding problem-solving algorithms is crucial for designing efficient rein
 
 > **Only children make a single choice, adults want everything at every steps **
 
-<img src=".\P18.png" alt="image-20241128111522318" style="zoom:40%;" />
+<img src=".\Materials\P18.png" alt="image-20241128111522318" style="zoom:40%;" />
 
 <center>Fig 17: Hahaha</center>
 
@@ -480,7 +482,7 @@ A **greedy algorithm** is a problem-solving strategy that makes a sequence of ch
 
 The key idea behind a greedy algorithm is the assumption that **locally optimal choices** will lead to a **globally optimal solution**. However, this is not always the case, and while greedy algorithms can be fast and simple, they may **miss the best solution** by focusing on short-term gains rather than long-term benefits.
 
-<img src=".\P17.png" alt="image-20241127233457442" style="zoom:100%;" />
+<img src=".\Materials\P17.png" alt="image-20241127233457442" style="zoom:100%;" />
 
 <center>Fig 17: Greedy Algorithm</center>
 
@@ -662,7 +664,7 @@ public:
 
 **4 [Jump Game](https://leetcode.cn/problems/jump-game/): Interesting and more versions**
 
-<img src=".\P19.png" alt="image-20241128121751610" style="zoom:50%;" />
+<img src=".\Materials\P19.png" alt="image-20241128121751610" style="zoom:50%;" />
 
 <center>Fig 17: Jump Game Problems</center>
 
@@ -715,7 +717,7 @@ public:
 
 3.It's important to analyze the problem carefully and ensure that the **greedy choice property** holds before relying on this approach. **But, it is always hard to prove but try over and over again**
 
-<img src=".\P20.png" alt="image-20241128125131751" style="zoom:67%;" />
+<img src=".\Materials\P20.png" alt="image-20241128125131751" style="zoom:67%;" />
 
 <center>Fig 17: Greedy Algorithm</center>
 
@@ -758,13 +760,13 @@ In **Reinforcement Learning (RL)**, **greedy algorithms** are often used in deci
 
 While **pure greedy algorithms** don’t involve exploration, there are situations where greedy algorithms can be **modified** to introduce some form of exploration. This is often done to make the algorithm more flexible or to avoid getting **stuck in a suboptimal solution **(a local optimum).**A small epsilon** means the algorithm will mostly exploit the best-known option (greedy behavior), but with a small chance to explore new options.
 
-<img src=".\P22.png" alt="image-20241128131045698" style="zoom:40%;" />
+<img src=".\Materials\P22.png" alt="image-20241128131045698" style="zoom:40%;" />
 
 ##### (b) Dynamic Programming(DP): State Design, State Transition — Unknowns Derived from Known Values
 
 >  **"Those who forget the past are doomed to repeat it."**
 
-<img src=".\P12.png" alt="image-20241127232505583" style="zoom:50%;" />
+<img src=".\Materials\P12.png" alt="image-20241127232505583" style="zoom:50%;" />
 
 <center>Fig 12: A Chinese man: Xun LU</center>
 
@@ -791,7 +793,7 @@ While **pure greedy algorithms** don’t involve exploration, there are situatio
 
 
 
-<img src=".\P13.png" alt="image-20241127233457442" style="zoom:40%;" />
+<img src=".\Materials\P13.png" alt="image-20241127233457442" style="zoom:40%;" />
 
 <center>Fig 13: Dynamic Programming</center>
 
@@ -800,7 +802,7 @@ While **pure greedy algorithms** don’t involve exploration, there are situatio
 - **Memoization (Top-Down Approach)**: This involves solving the problem **recursively** but **storing the results of subproblems in a cache (usually a dictionary or array),** so each subproblem is solved only once.
 - **Tabulation (Bottom-Up Approach)**: This approach solves all subproblems **iteratively**, starting with the smallest subproblem and **building up** to the solution of the original problem. It uses a table to store results and avoids recursion.
 
-<img src=".\P14.png" alt="image-20241127234123052" style="zoom:60%;" />
+<img src=".\Materials\P14.png" alt="image-20241127234123052" style="zoom:60%;" />
 
 <center>Fig 13: Two Structure of DP </center>
 
@@ -1409,7 +1411,7 @@ train()
 
 **Objective:** Establish communication between the Unity game and Python for training the RL agent.
 
-<img src=".\P31.png" alt="image-20241129113154126" style="zoom:67%;" />
+<img src=".\Materials\P31.png" alt="image-20241129113154126" style="zoom:67%;" />
 
 1. Configuring a virtual environment
 2. Install the Unity ML-Agents Toolkit
