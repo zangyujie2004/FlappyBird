@@ -1,0 +1,42 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1732866024",
+        "python_version": "3.10.9 | packaged by Anaconda, Inc. | (main, Mar  1 2023, 18:18:15) [MSC v.1916 64 bit (AMD64)]",
+        "command_line_arguments": "E:\\Unity_PROJECT\\Learn_2D\\venv\\Scripts\\mlagents-learn envconfig.yaml --run-id=Flappy_9",
+        "mlagents_version": "1.1.0",
+        "mlagents_envs_version": "1.1.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "2.5.1+cpu",
+        "numpy_version": "1.23.5",
+        "end_time_seconds": "1732866032"
+    },
+    "total": 8.340879999999743,
+    "count": 1,
+    "self": 0.006783000004361384,
+    "children": {
+        "run_training.setup": {
+            "total": 0.06369409999751952,
+            "count": 1,
+            "self": 0.06369409999751952
+        },
+        "TrainerController.start_learning": {
+            "total": 8.270402899997862,
+            "count": 1,
+            "self": 0.00011530000119819306,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 8.270274399998016,
+                    "count": 1,
+                    "self": 8.270274399998016
+                },
+                "TrainerController._save_models": {
+                    "total": 1.3199998647905886e-05,
+                    "count": 1,
+                    "self": 1.3199998647905886e-05
+                }
+            }
+        }
+    }
+}
