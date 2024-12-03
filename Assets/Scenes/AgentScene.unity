@@ -803,7 +803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ccd3e009e6288b499bc9db0d0085b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generate_rate: 1.5
+  generate_rate: 1.7
   offset: 2.3
 --- !u!1 &498251257
 GameObject:
@@ -7359,7 +7359,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: c9b7349d50d494742b98c1486b97ea00, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: f701ed20c837aa441a897cb935c36cf9, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: FlappyBird

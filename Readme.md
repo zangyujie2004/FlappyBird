@@ -26,7 +26,7 @@ This project provides an opportunity to learn and master **Unity 2D**, a powerfu
 
 #### 1.2.2 Learning, Understanding, and Applying Reinforcement Learning
 
-The project deepens the understanding of **reinforcement learning (RL)** principles, such as how agents interact with their environments and learn optimal behaviors through rewards and penalties. By implementing RL algorithms like **Deep Q-Networks (DQN)**, you gain a solid understanding of key concepts like state-action-reward systems, **exploration-exploitation trade-offs, value functions, and policy optimization.** This knowledge is foundational for applying RL techniques to more complex, real-world problems, where agents must make decisions in dynamic environments.
+The project deepens the understanding of **reinforcement learning (RL)** principles, such as how agents interact with their environments and learn optimal behaviors through rewards and penalties. By implementing RL algorithms like **Deep Q-Networks (DQN)** and **Proximal Policy Optimization** , you can gain a solid understanding of key concepts like state-action-reward systems, **exploration-exploitation trade-offs, value functions, and policy optimization.** This knowledge is foundational for applying RL techniques to more complex, real-world problems, where agents must make decisions in dynamic environments.
 
 <img src=".\Materials\P2.png" alt="image-20241126142753035" style="zoom:40%;"  />
 
@@ -49,17 +49,25 @@ The report is structured as follows:
 - **Discussion:** Insights gained during the project, challenges encountered, and suggested improvements.
 - **Conclusion:** A summary of the project’s findings and its potential applications.
 
-- 26/11/2024(Tuesday): Do the Framework and improve the environment game created in Lecture Interactive Technology
-- 27/11/2024: Do the Report of game development in unity, explore the Reinforcement Learning fundamentals and write the report
-- 28/11/2024: do python-unity integration and create the flow of training and testing
-- 29: evaluate and write the rest
-- 30: release
+---
+
+---
 
 ## 2 Methodology
 
 ### 2.1 Game Development in Unity
 
-**Objective:** Create the Flappy Bird game environment in Unity.
+**Objective:** Create the Flappy Bird game environment in Unity. 
+
+**Process:**
+
+**2.1.1 Game Mechanics Design**: This step focuses on creating the core gameplay features such as gravity, jump force, collision detection, and game-over conditions.
+
+**2.1.2 Object Manipulation**: This step involves controlling the movement of game objects like the bird and pipes. It includes setting up the physics and movement for these objects, as well as handling their behaviors when they interact with each other.
+
+**2.1.3 UI Design and Scene Setup**: This step covers the creation of interactive elements within the game such as menus, buttons, and in-game UI elements (e.g., score display and game over screen). It also involves designing the layout of the scenes, ensuring a smooth user experience.
+
+
 
 #### 2.1.1 Game Mechanics Design
 
@@ -89,7 +97,7 @@ Collision detection is crucial in determining whether the bird collides with pip
 
 - **Pipe Collision**: Similarly, the pipes are assigned **BoxCollider2D** components to detect when the bird passes through or hits them. Pipes are dynamically generated and moved from right to left across the screen.
 
-<img src=".\P5.png" alt="image-20241127001147068" style="zoom:50%;" />
+<img src=".\Materials\P5.png" alt="image-20241127001147068" style="zoom:50%;" />
 
 <center>Fig 5: BoxCollider 2D Set in Unity</center>
 
@@ -227,9 +235,7 @@ public class LogicStartScript : MonoBehaviour
 }
 ```
 
-- **Button for Agent**: trigger the agent's learning process or start an automated run.
-
-
+- **Button for Agent**: Observe the agent FlappyBird and learn from it how does it handle quick-moving pipes.
 
 ##### (b) In-Game Scene
 
@@ -241,7 +247,7 @@ public class LogicStartScript : MonoBehaviour
 - **Pink Cloud**: This could be a UI decoration or effect to enhance the game’s atmosphere.
 - **Exit Button**: If the player wants to quit during the game, they should be able to return to the Home Scene.
 
-(c) GameOver Scene
+##### (c) GameOver Scene
 
 <img src=".\Materials\P11.png" alt="image-20241127084608691" style="zoom:67%;" />
 
@@ -251,9 +257,15 @@ public class LogicStartScript : MonoBehaviour
 - **Play Again Button**: Do not be Upset and Retry again!
 - **Exit Button**: Allows the player to return to the Home Scene or quit the game.
 
+
+
+**----- At this point, you've successfully developed the game and can now play it independently. -----**
+
+---
+
 ### 2.2 Reinforcement Learning Setup
 
-**Objective:** Apply reinforcement learning algorithms** (DQN)** to train an agent (the bird) to play the game.
+**Objective:** Apply reinforcement learning algorithms** (PPO)** to train an agent (the bird) to play the game.
 
 <img src=".\Materials\P23.png" alt="image-20241128164931270" style="zoom:30%;" />
 
@@ -354,9 +366,9 @@ print(f"Proportion of Rainy days: {rainy_proportion:.2f}")
 
 **When num_days get larger, the result will converge to steady state: **
 
-<img src=".\P26.png" alt="image-20241128183123625" style="zoom:50%;" />
+<img src=".\Materials\P26.png" alt="image-20241128183123625" style="zoom:50%;" />
 
-<img src=".\P27.png" alt="image-20241128185332559" style="zoom:35%;" />
+<img src=".\Materials\P27.png" alt="image-20241128185332559" style="zoom:35%;" />
 
 <center>Fig 11: Results for (1,1000), 20000, and 2000000 times </center>
 
@@ -458,7 +470,7 @@ $$
 $$
 \pi^*(s) = \arg\max_a \left( R(s, a) + \gamma \sum_{s'} P(s' \mid s, a) V^*(s') \right)
 $$
-<img src=".\P29.png" alt="image-20241128201612789" style="zoom:30%;" />
+<img src=".\Materials\P29.png" alt="image-20241128201612789" style="zoom:30%;" />
 
 <center>Fig 17: Oh No!!!</center>
 
@@ -1107,9 +1119,47 @@ State=(h_{bird} ,v_{bird},d_{pipe} ,h_{pipe})
 $$
 The **state space** will consist of all possible combinations of these variables, which could be **discretized**.
 
-<img src=".\P30.png" alt="image-20241128104918108" style="zoom:50%;" />
+<img src=".\Materials\P30.png" alt="image-20241128104918108" style="zoom:50%;" />
 
 <center>Fig 16: State Space in game</center>
+
+**Code**
+
+```c#
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        if (!birdIsAlive) return;
+
+        // Add Bird's position and velocity as observations
+        sensor.AddObservation(transform.position.y);  // Bird's position
+        sensor.AddObservation(myRigidbody.velocity.y); // Bird's velocity
+
+        // Get information about the nearest pipe
+        if (activePipes.Count > 0)
+        {
+            // Select the nearest pipe in view
+            GameObject closestPipe = GetNextPipeInView();
+
+            if (closestPipe != null)
+            {
+                // Update the current pipe
+                currentPipe = closestPipe;
+
+                // Get the pipe's x and y position
+                float pipeX = closestPipe.transform.position.x;
+                float pipeY = closestPipe.transform.position.y;
+
+                // Calculate the horizontal distance and pipe height
+                distanceToNextPipe = pipeX - transform.position.x;
+                heightOfNextPipe = pipeY;
+
+                // Add pipe information as observations
+                sensor.AddObservation(distanceToNextPipe);  // Horizontal distance to the next pipe
+                sensor.AddObservation(heightOfNextPipe);    // Height of the next pipe
+            }
+        }
+    }
+```
 
 ###### (2) Action Space Definition
 
@@ -1139,9 +1189,9 @@ $$
 \text{Reward} = 
 \begin{cases} 
 +10 & \text{if the bird successfully passes a pipe} \\
-+0.1 & \text{for each frame survived} \\
--100 & \text{if the bird collides with a pipe or the ground/ceiling} \\
--0.1 & \text{if the bird flaps (optional, to encourage sparing use of flap)} \\
++0.5 & \text{for each frame survived} \\
+-10 & \text{if the bird collides with a pipe or the ground/ceiling} \\
+-2.0 & \text{if the bird flaps (optional, to encourage sparing use of flap)} \\
 0 & \text{otherwise}
 \end{cases}
 \end{equation}
@@ -1156,6 +1206,56 @@ The **goal of the RL agent** is to learn a policy that maximizes its total expec
 - **Avoiding collisions**: The agent should learn to navigate the space between pipes without colliding with them or hitting the ground.
 - **Efficient action selection**: The agent needs to understand the best time to flap based on the bird’s position and velocity relative to the next pipe.
 
+**Code**
+
+```c#
+    public override void OnActionReceived(ActionBuffers actions)
+    {
+        if (!birdIsAlive) return;
+
+        int action = actions.DiscreteActions[0];
+
+        if (action == 1)  // Flap
+        {
+            myRigidbody.velocity = Vector2.up * fly_strength;
+            myAnimator.SetTrigger("WingTrigger");
+            AddReward(-2.0f);  // Penalize for flapping
+        }
+
+        // Check if the pipe has passed
+        if (currentPipe != null && -2 > currentPipe.transform.position.x && birdIsAlive)
+        {
+            AddReward(10f);  // Reward for passing the pipe
+            currentPipe = null;  // Reset current pipe after passing
+        }
+
+        // Check survival reward
+        if (birdIsAlive)
+        {
+            AddReward(0.5f);  // Reward for surviving each frame
+        }
+
+        // Check if bird hits the wall or floor
+        if (transform.position.y >= topBoundary || transform.position.y <= bottomBoundary)
+        {
+            AddReward(-10f);  // Punish for hitting the wall or floor
+            birdIsAlive = false;
+            EndEpisode(); // End the episode when the bird dies
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!birdIsAlive) return;
+        
+        birdIsAlive = false;
+        AddReward(-10f);  // Punish for hitting an obstacle
+        EndEpisode(); // End the episode when the bird dies
+    }
+}
+
+```
+
 ###### (5) State Transition
 
 The **state transition** defines how the environment responds to the agent’s actions. In the case of Flappy Bird, the state transitions are determined by the dynamics of the bird’s motion, gravity, and the position of the pipes. The state will evolve based on the agent’s action, and the environment will compute the new state and the associated reward. State Transition is:
@@ -1167,6 +1267,8 @@ These transitions follow the basic **physics of the game** and are deterministic
 
 #### 2.2.5  Algorithm Implementation and Code
 
+##### (1) Deep Q-Learning
+
 Based on the problem definition and goal of the RL agent for **Flappy Bird** outlined in section 2.2.4, the next step is to implement the **Reinforcement Learning algorithm** that allows the agent to learn how to play the game effectively. In this case, we will use a **(DQN)**.
 
 - **1.Initialization**
@@ -1176,21 +1278,20 @@ Based on the problem definition and goal of the RL agent for **Flappy Bird** out
     - Initialize the **Flappy Bird** environment E.
     - Define the **state space** SSS and the **action space** A.
   - **Q-Network Setup:**
-
-    - Initialize the Q-Network Q(s,a;θ) with random weights θ.
+- Initialize the Q-Network Q(s,a;θ) with random weights θ.
     - Initialize the **target network** Q(s,a;θ-) with the same weights θ- =θ.
-
-  - **Replay Memory Setup:**
-
-    - Initialize an empty **replay buffer** D to store experiences.
+    
+- **Replay Memory Setup:**
+  
+  - Initialize an empty **replay buffer** D to store experiences.
     - Set the **maximum buffer size** ∣D∣=N.
-
-  - **Hyperparameters:**
-
-    - Set the **discount factor** γ.
+  
+- **Hyperparameters:**
+  
+  - Set the **discount factor** γ.
     - Set the **exploration rate** ϵ, **decay rate** for ϵ, and the **minimum epsilon** ϵ_min\.
     - Set **learning rate** α, **batch size** B, and **target network update frequency** T.
-
+  
 - **2.Algorithm Execution**
 
   - **For each episode e∈{1,2,…,M}:**
@@ -1301,16 +1402,16 @@ class QNetwork(nn.Module):
         return q_values
 
 # Hyperparameters
-gamma = 0.9  # Discount factor
-epsilon = 1.0  # Exploration rate
-epsilon_min = 0.01  # Minimum epsilon value
-epsilon_decay = 0.995  # Decay rate for epsilon
-learning_rate = 0.001  # Learning rate
-batch_size = 32  # Batch size for experience replay
-buffer_size = 10000  # Maximum size of the replay buffer
-update_frequency = 4  # How often to update the target network
-target_update_freq = 1000  # How often to update the target network
-max_episodes = 1000  # Max number of episodes
+gamma    # Discount factor
+epsilon    # Exploration rate
+epsilon_min   # Minimum epsilon value
+epsilon_decay   # Decay rate for epsilon
+learning_rate   # Learning rate
+batch_size   # Batch size for experience replay
+buffer_size  # Maximum size of the replay buffer
+update_frequency   # How often to update the target network
+target_update_freq  # How often to update the target network
+max_episodes   # Max number of episodes
 
 # Set up the environment (Assume Flappy Bird environment is available in OpenAI Gym)
 env = gym.make('FlappyBird-v0')  # This assumes you have a custom Flappy Bird Gym environment
@@ -1407,23 +1508,260 @@ train()
 
 ```
 
-### 2.3 Python-Unity Integration 
+##### (2) Proximal Policy Optimization
+
+PPO is an actor-critic algorithm where the **actor** updates the policy and the **critic** evaluates the value function. PPO optimizes the objective function using the **clipped surrogate objective** to ensure that policy updates do not change the policy too drastically, which helps with stability.
+
+- ### 1.Initialization
+
+  - **Environment Setup**:
+    - Initialize the **Flappy Bird** environment `env`.
+    - Define the **state space** `S` and the **action space** `A`.
+  - ** 'Policy Network (Actor) Setup**:
+    - Initialize the **policy network** `π(s; θ)` that outputs a probability distribution over actions.
+    - The actor network will output action probabilities (in the case of discrete actions, this is a softmax layer).
+  - **Value Network (Critic) Setup**:
+    - Initialize the **value network** `V(s; ω)` that estimates the state value.
+    - The critic network will output a scalar value representing the expected future rewards.
+  - **Replay Buffer**:
+    - Initialize a buffer to store experiences during the episode. We'll store the state, action, reward, and advantage for each time step.
+  - **Hyperparameters**:
+    - Set **learning rate** `α`, **discount factor** `γ`, **generalized advantage estimation (GAE) lambda** `λ`, and **clip ratio** `ε`.
+    - Set **epochs per batch** `n_epochs`, **mini-batch size** `batch_size`, and **number of episodes** `M`.
+
+- ### **2.Algorithm Execution**
+
+  - **For each episode `e ∈ {1, 2, ..., M}`:**
+
+    - **Initialize the initial state `s0` by resetting the environment:**
+
+      - `s0 = env.reset()`
+
+    - **Set the episode flag and total reward:**
+
+      - `done = False`
+      - `total_reward = 0`
+
+    - **For each time step `t` within the episode:**
+
+      - **Action Selection (using the actor's policy):**
+
+        - Select an action `a_t` using the **actor network** based on the current state `s_t`.
+        - In the case of **discrete actions**, use a **softmax layer** to get a probability distribution and sample from it. For **continuous actions**, sample from a Gaussian distribution (mean, std).
+        - Use a **probabilistic policy** to select actions and to encourage exploration (through randomness).
+
+        $$
+        a_t = \text{argmax}_{a} \, \pi(s_t, a; \theta)
+        $$
+
+        
+
+      - **Take Action and Observe Reward:**
+
+        - Take the selected action `a_t` in the environment.
+        - Observe the **reward** `r_t`, the **next state** `s_{t+1}`, and whether the episode has ended (`done`).
+        - Store the experience `(s_t, a_t, r_t, s_{t+1}, done)` in the buffer for later updates.
+        - Update the `total_reward` by adding the reward `r_t`.
+
+      - **End of Episode:**
+
+        - After each episode, calculate the **advantages** (to evaluate the "goodness" of a state-action pair).
+        - Compute the **returns** (the cumulative rewards from the current time step).
+
+  - ### **3. Experience Replay and Training**
+
+    - After collecting enough experiences from the episode, compute the **advantage** and **returns** using **Generalized Advantage Estimation (GAE)**:
+
+    $$
+    A_t = \sum_{i=0}^{n} \left(\gamma^i \delta_t + (\gamma \lambda)^i \delta_t\right)
+    $$
+
+    
+
+    - **Calculate the advantage** for each state-action pair.
+    - Use **PPO's clipped objective function** for policy updates. The objective function prevents large policy updates by clipping the ratio of the new and old policies.
+
+    **Policy Update:**
+
+    - PPO uses the **clipped objective** to ensure that the policy does not change too drastically during an update. The objective is:
+
+    $$
+    L(\theta) = \mathbb{E}_t \left[ \min \left( \rho_t(\theta) \hat{A_t}, \text{clip}(\rho_t(\theta), 1-\epsilon, 1+\epsilon) \hat{A_t} \right) \right]
+    $$
+
+    Where:
+
+    - `ρ_t(θ)` is the probability ratio: `ρ_t(θ) = π(a_t|s_t; θ) / π_old(a_t|s_t; θ)`
+    - `A_t` is the advantage estimate.
+    - `ε` is the **clip ratio** to control the update size.
+    - **Critic Loss**: Train the critic to minimize the **mean squared error** (MSE) between the predicted value `V(s_t)` and the true return `R_t`.
+
+  - ### **4. Target Network Update** (optional for PPO)
+
+    ​	Unlike **DQN**, PPO does not use a target network. Instead, it uses a **clipped objective** to stabilize training.
+
+  - ### **5. Repeat Until Convergence or Maximum Episodes**
+
+    - Continue this process for **M episodes** or until the agent converges and performs well on the task.
+    - Print out the total reward for each episode to monitor training progress.
+
+**Code**
+
+```python
+import torch
+import torch.nn as nn
+import torch.optim as optim
+import numpy as np
+import gym
+
+# Define the Actor network (Policy)
+class Actor(nn.Module):
+    def __init__(self, input_dim, output_dim):
+        super(Actor, self).__init__()
+        self.fc = nn.Linear(input_dim, 128)
+        self.policy = nn.Linear(128, output_dim)
+    
+    def forward(self, x):
+        x = torch.relu(self.fc(x))
+        return torch.softmax(self.policy(x), dim=-1)
+
+# Define the Critic network (Value function)
+class Critic(nn.Module):
+    def __init__(self, input_dim):
+        super(Critic, self).__init__()
+        self.fc = nn.Linear(input_dim, 128)
+        self.value = nn.Linear(128, 1)
+    
+    def forward(self, x):
+        x = torch.relu(self.fc(x))
+        return self.value(x)
+
+# Hyperparameters
+gamma    # Discount factor
+epsilon    # Clipping parameter
+epsilon_min   # Minimum epsilon
+epsilon_decay   # Epsilon decay rate
+alpha    # Learning rate
+n_epochs    # Number of epochs per batch
+batch_size    # Mini-batch size
+max_episodes    # Maximum number of episodes
+
+# Initialize environment (replace with Flappy Bird environment)
+env = gym.make('FlappyBird-v0')
+
+# Initialize networks and optimizer
+actor = Actor(input_dim=env.observation_space.shape[0], output_dim=env.action_space.n)
+critic = Critic(input_dim=env.observation_space.shape[0])
+optimizer = optim.Adam(list(actor.parameters()) + list(critic.parameters()), lr=alpha)
+
+# Training loop
+for episode in range(max_episodes):
+    state = env.reset()
+    done = False
+    total_reward = 0
+    buffer = []
+
+    while not done:
+        # Get action probabilities from the actor
+        action_probs = actor(torch.tensor(state, dtype=torch.float32))
+        action = np.random.choice(len(action_probs), p=action_probs.detach().numpy())
+        
+        # Take action and observe reward
+        next_state, reward, done, _ = env.step(action)
+        
+        # Store experience in buffer
+        buffer.append((state, action, reward, done, next_state))
+        
+        state = next_state
+        total_reward += reward
+
+    # Compute advantages and returns
+    states, actions, rewards, dones, next_states = zip(*buffer)
+    advantages = compute_advantages(rewards, critic(torch.tensor(states, dtype=torch.float32)),
+                                   critic(torch.tensor(next_states, dtype=torch.float32)), dones)
+    
+    # Update networks
+    for _ in range(n_epochs):
+        for batch in range(0, len(buffer), batch_size):
+            batch_data = buffer[batch:batch + batch_size]
+            states_batch, actions_batch, rewards_batch, dones_batch, next_states_batch = zip(*batch_data)
+            
+            # Compute policy and value losses
+            log_probs = torch.log(actor(torch.tensor(states_batch, dtype=torch.float32)))
+            old_log_probs = log_probs.detach()
+            action_probs = torch.gather(log_probs, 1, torch.tensor(actions_batch).unsqueeze(-1))
+            
+            ratio = torch.exp(action_probs - old_log_probs)
+            clipped_ratio = torch.clamp(ratio, 1 - epsilon, 1 + epsilon)
+            actor_loss = -torch.min(ratio * advantages, clipped_ratio * advantages).mean()
+            
+            values = critic(torch.tensor(states_batch, dtype=torch.float32))
+            critic_loss = nn.MSELoss()(values, torch.tensor(rewards_batch, dtype=torch.float32))
+            
+            total_loss = actor_loss + 0.5 * critic_loss
+            optimizer.zero_grad()
+            total_loss.backward()
+            optimizer.step()
+    
+    # Decay exploration rate (optional)
+    epsilon = max(epsilon_min, epsilon * epsilon_decay)
+    print(f"Episode {episode}: Total Reward: {total_reward}")
+
+```
+
+
+
+**---- Fortunately, Unity simplifies this process with its integrated ML-Agents package. With this, you can easily apply a pre-trained model and its corresponding parameters directly to control the agent within the game environment ----- **
+
+---
+
+### 2.3 Python-Unity Integration (ML-Agent Toolkit)
 
 **Objective:** Establish communication between the Unity game and Python for training the RL agent.
 
 <img src=".\Materials\P31.png" alt="image-20241129113154126" style="zoom:67%;" />
 
-1. Configuring a virtual environment
-2. Install the Unity ML-Agents Toolkit
-3. 
+#### 2.3.1   Configuring a Virtual Environment for Python
+
+A virtual environment isolates dependencies required for a specific project, ensuring that your Python setup does not conflict with other projects. This is a good practice when working with machine learning libraries and Python packages.
+
+- 1.Create a new virtual environment
+
+  ```
+  Create a new virtual environment
+  ```
+
+- 2.Activate the virtual environment
+
+  ```
+  .\venv\Scripts\activate
+  ```
+
+- 3.Install the necessary Python dependencies(Pytorch)
+
+  ```
+  pip install pytorch
+  ```
+
+#### 2.3.2 Install the Unity ML-Agents Toolkit
+
+The **Unity ML-Agents Toolkit** is a Python package that provides functionality to communicate with Unity, allowing you to train machine learning models and integrate them into Unity games.
+
+```
+pip install mlagents
+```
 
 
+
+**----- Once everything is configured, you can seamlessly integrate Python and Unity, and begin training your agent on complex tasks, such as playing Flappy Bird -----**
+
+---
 
 ### 2.4 Training the Agent
 
 **Objective:** Train the RL agent to play the game using the selected reinforcement learning algorithm.
 
-1. 
+
 
 ### 2.5 Testing and Optimization
 
@@ -1460,7 +1798,9 @@ train()
 9. https://en.wikipedia.org/wiki/Markov_decision_process
 10. [简述马尔可夫链【通俗易懂】 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/448575579)
 11. Z. He, "Analysis on Deep Reinforcement Learning with Flappy Brid Gameplay," *2022 5th International Conference on Information and Computer Technologies (ICICT)*, New York, NY, USA, 2022, pp. 95-99, doi: 10.1109/ICICT55905.2022.00025.
-12. 
+12. https://www.youtube.com/@GMTK
+
+
 
 ## 7 Project Schedule
 
@@ -1509,7 +1849,7 @@ train()
   - Begin analyzing the results (reward curves, agent’s learning curve, performance over time).
   - Write the **Results** section of the report, focusing on agent performance.
 
-### **Day 5: 30/11/2024 (Saturday) - Final Evaluation and Report Completion**
+### **Day 5-10: 30/11/2024 (Saturday) - Final Evaluation and Report Completion**
 
 - **Morning:**
   - Conduct final testing and assess the performance of the agent in the game environment.

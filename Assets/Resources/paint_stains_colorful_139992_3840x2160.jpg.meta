@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      paint_stains_colorful_139992_3840x2160_0: 6845514200139017687
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
