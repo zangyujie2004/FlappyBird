@@ -1279,6 +1279,7 @@ Based on the problem definition and goal of the RL agent for **Flappy Bird** out
     - Define the **state space** SSS and the **action space** A.
   - **Q-Network Setup:**
 - Initialize the Q-Network Q(s,a;θ) with random weights θ.
+    
     - Initialize the **target network** Q(s,a;θ-) with the same weights θ- =θ.
     
 - **Replay Memory Setup:**
@@ -1775,7 +1776,23 @@ pip install mlagents
 
 **Objective:** Analyze the training results and draw insights from the agent's performance.
 
+<img src=".\Materials\p32.png" alt="image-20241204205357406" style="zoom:50%;" />
 
+
+
+<img src=".\Materials\P33.png" alt="image-20241204205547442" style="zoom:50%;" />
+
+
+
+<img src=".\Materials\P34.png" alt="image-20241204205547442" style="zoom:50%;" />
+
+
+
+<img src=".\Materials\P35.png" alt="image-20241204205547442" style="zoom:50%;" />
+
+
+
+<img src=".\Materials\P36.png" alt="image-20241204205547442" style="zoom:50%;" />
 
 ## 4 Discussion
 

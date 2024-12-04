@@ -21,12 +21,12 @@ public class BirdAgent : Agent
     public float distanceToNextPipe;  // Horizontal distance to the next pipe
     public float heightOfNextPipe;    // Height of the next pipe (top or bottom)
 
-    // 管道相关
-    public List<GameObject> activePipes = new List<GameObject>();  // 存储当前活跃的管道
+    // Pipe-related
+    public List<GameObject> activePipes = new List<GameObject>();  // List to store active pipes
 
-    private GameObject currentPipe;  // 当前正在被观察的管道
+    private GameObject currentPipe;  // The current pipe being observed
 
-    private ObjectPool pipePool;  // 对象池
+    private ObjectPool pipePool;  // Object pool
 
     public override void Initialize()
     {
@@ -34,72 +34,72 @@ public class BirdAgent : Agent
         myRigidbody.freezeRotation = true;
         myAnimator = GetComponent<Animator>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-        pipePool = GameObject.FindObjectOfType<ObjectPool>();  // 获取对象池的引用
+        pipePool = GameObject.FindObjectOfType<ObjectPool>();  // Get reference to the object pool
     }
 
     public override void OnEpisodeBegin()
     {
-        // 重置 Bird 的状态和位置
+        // Reset the Bird's state and position
         birdIsAlive = true;
-        myRigidbody.linearVelocity = Vector2.zero;  // 清除之前的速度
-        transform.position = new Vector3(0f, 0f, 0f);  // 重新设置鸟的位置
-        transform.rotation = Quaternion.Euler(0f, 0f, 0f);  // 保持不旋转
+        myRigidbody.linearVelocity = Vector2.zero;  // Clear previous velocity
+        transform.position = new Vector3(0f, 0f, 0f);  // Reset bird's position
+        transform.rotation = Quaternion.Euler(0f, 0f, 0f);  // Keep it unrotated
         
-        // 重新绑定动画
+        // Rebind animations
         myAnimator.Rebind();
 
-        // 禁用当前所有管道
+        // Disable all current pipes
         foreach (var pipe in activePipes)
         {
-            pipe.SetActive(false);  // 禁用管道对象
-            pipePool.ReturnObjectToPool(pipe);  // 将管道归还对象池
+            pipe.SetActive(false);  // Disable pipe object
+            pipePool.ReturnObjectToPool(pipe);  // Return pipe to object pool
         }
-        activePipes.Clear();  // 清空管道列表
+        activePipes.Clear();  // Clear pipe list
 
-        // 管道生成器重新开始生成管道
+        // Restart pipe generator
         PipeGenerate pipeGenerate = GameObject.FindObjectOfType<PipeGenerate>();
         pipeGenerate.ResetGenerator();
 
-        logic.ResetScore();  // 重置分数
+        logic.ResetScore();  // Reset score
         
-        currentPipe = null;  // 重置当前目标管道
+        currentPipe = null;  // Reset the current target pipe
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
         if (!birdIsAlive) return;
 
-        // 添加 Bird 的位置和速度作为观察数据
-        sensor.AddObservation(transform.position.y);  // Bird 位置
-        sensor.AddObservation(myRigidbody.linearVelocity.y); // Bird 速度
+        // Add Bird's position and velocity as observations
+        sensor.AddObservation(transform.position.y);  // Bird's position
+        sensor.AddObservation(myRigidbody.linearVelocity.y); // Bird's velocity
 
-        // 获取最近的管道信息
+        // Get information about the nearest pipe
         if (activePipes.Count > 0)
         {
-            // 选择当前视野内的最近管道
+            // Select the nearest pipe in view
             GameObject closestPipe = GetNextPipeInView();
 
             if (closestPipe != null)
             {
-                // 更新当前管道
+                // Update the current pipe
                 currentPipe = closestPipe;
 
-                // 获取管道的 x 和 y 位置
+                // Get the pipe's x and y position
                 float pipeX = closestPipe.transform.position.x;
                 float pipeY = closestPipe.transform.position.y;
 
-                // 计算与鸟之间的距离
+                // Calculate the horizontal distance and pipe height
                 distanceToNextPipe = pipeX - transform.position.x;
                 heightOfNextPipe = pipeY;
 
-                // 添加管道信息作为观察数据
-                sensor.AddObservation(distanceToNextPipe);  // Horizontal distance to next pipe
+                // Add pipe information as observations
+                sensor.AddObservation(distanceToNextPipe);  // Horizontal distance to the next pipe
                 sensor.AddObservation(heightOfNextPipe);    // Height of the next pipe
             }
         }
     }
 
-    // 选择当前视野内的下一个管道
+    // Select the next pipe in view
     private GameObject GetNextPipeInView()
     {
         GameObject nextPipe = null;
@@ -108,12 +108,12 @@ public class BirdAgent : Agent
         {
             float distance = pipe.transform.position.x - transform.position.x;
 
-            // 只关注在视野内且尚未跨越的管道
-            if (distance > -2.5 && distance < 12)  // 确保管道在视野范围内
+            // Only consider pipes in the view and not passed yet
+            if (distance > -2.5 && distance < 12)  // Ensure the pipe is in view
             {
                 if (nextPipe == null || distance < nextPipe.transform.position.x - transform.position.x)
                 {
-                    nextPipe = pipe;  // 选择最接近的管道
+                    nextPipe = pipe;  // Select the nearest pipe
                 }
             }
         }
@@ -131,28 +131,28 @@ public class BirdAgent : Agent
         {
             myRigidbody.linearVelocity = Vector2.up * fly_strength;
             myAnimator.SetTrigger("WingTrigger");
-            AddReward(-2.0f);
+            AddReward(-2.0f);  // Penalize for flapping
         }
 
-        // 检查管道通过
+        // Check if the pipe has passed
         if (currentPipe != null && -2 > currentPipe.transform.position.x && birdIsAlive)
         {
-            AddReward(10f); // 成功通过管道，奖励
-            currentPipe = null;  // Reset the current pipe after passing
+            AddReward(10f);  // Reward for passing the pipe
+            currentPipe = null;  // Reset current pipe after passing
         }
 
-        // 检查生存奖励
+        // Check survival reward
         if (birdIsAlive)
         {
-            AddReward(0.5f); // 每帧存活奖励
+            AddReward(0.5f);  // Reward for surviving each frame
         }
 
-        // 检查撞墙或者撞到地面
+        // Check if bird hits the wall or floor
         if (transform.position.y >= topBoundary || transform.position.y <= bottomBoundary)
         {
-            AddReward(-10f); // 撞墙或地面，死亡惩罚
+            AddReward(-10f);  // Punish for hitting the wall or floor
             birdIsAlive = false;
-            EndEpisode(); // 游戏结束，结束回合
+            EndEpisode(); // End the episode when the bird dies
         }
     }
 
@@ -161,7 +161,7 @@ public class BirdAgent : Agent
         if (!birdIsAlive) return;
         
         birdIsAlive = false;
-        AddReward(-10f); // 撞墙或地面，死亡惩罚
-        EndEpisode(); // 游戏结束，结束回合
+        AddReward(-10f);  // Punish for hitting an obstacle
+        EndEpisode(); // End the episode when the bird dies
     }
 }

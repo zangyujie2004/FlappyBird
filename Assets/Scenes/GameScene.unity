@@ -150,7 +150,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 5c865f5e0f00b724db548e50b8e87e3d, type: 3}
   m_Resource: {fileID: 8300000, guid: 5c865f5e0f00b724db548e50b8e87e3d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -947,8 +947,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pipe: {fileID: 0}
-  generate_rate: 1.75
-  offset: 2.5
+  generate_rate: 1.5
+  offset: 2.3
 --- !u!1 &498251257
 GameObject:
   m_ObjectHideFlags: 0
@@ -7182,7 +7182,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -7279,7 +7279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 2048221633}
-  fly_strength: 5
+  fly_strength: 6
   logic: {fileID: 0}
   birdisAlive: 1
   myAnimator: {fileID: 0}
