@@ -6,6 +6,16 @@
 
 ---
 
+## 0 Description of Directories and Files
+
+```vbnet
+├── asserts/ # Assertions and validation scripts
+├── FlappyBird_New/ # The created Flappy Bird game (game state and gameplay)
+├── TensorBoard/ # Saved models and training data for TensorBoard 
+├── Materials/ # Markdown assets and resources (images, screenshots, etc.) 
+├── envconfigure.yaml # Configuration file for environment parameters 
+```
+
 ## 1 Introduction
 
 ### 1.1 Overview  of the project
