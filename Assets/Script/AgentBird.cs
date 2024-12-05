@@ -39,6 +39,8 @@ public class BirdAgent : Agent
 
     public override void OnEpisodeBegin()
     {
+        if (!birdIsAlive) return;
+        
         // Reset the Bird's state and position
         birdIsAlive = true;
         myRigidbody.linearVelocity = Vector2.zero;  // Clear previous velocity
@@ -153,6 +155,7 @@ public class BirdAgent : Agent
             AddReward(-10f);  // Punish for hitting the wall or floor
             birdIsAlive = false;
             EndEpisode(); // End the episode when the bird dies
+            logic.GameOver();
         }
     }
 
@@ -163,5 +166,6 @@ public class BirdAgent : Agent
         birdIsAlive = false;
         AddReward(-10f);  // Punish for hitting an obstacle
         EndEpisode(); // End the episode when the bird dies
+        logic.GameOver();
     }
 }

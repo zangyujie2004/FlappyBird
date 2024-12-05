@@ -804,7 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generate_rate: 1.5
-  offset: 2
+  offset: 2.2
 --- !u!1 &498251257
 GameObject:
   m_ObjectHideFlags: 0
@@ -7299,7 +7299,7 @@ Animator:
   m_GameObject: {fileID: 2048221632}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 677961f6b292c844ba5039dcabf57745, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7328,8 +7328,8 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   myRigidbody: {fileID: 2048221633}
-  myAnimator: {fileID: 0}
-  logic: {fileID: 0}
+  myAnimator: {fileID: 2048221638}
+  logic: {fileID: 318821846}
   fly_strength: 6
   topBoundary: 5
   bottomBoundary: -5
@@ -7359,7 +7359,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: f701ed20c837aa441a897cb935c36cf9, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: e812d786d39a8b4448dd73fc30032c11, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: FlappyBird

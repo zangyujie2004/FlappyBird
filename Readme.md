@@ -40,7 +40,7 @@ Through this project, you deepen your understanding of RL and its real-world app
 
 <center>Fig 3: Autonomous Vehices using End-to-End By MIT</center>
 
-### 1.3 Structure of the Report:
+### 1.3 Structure of the Report
 The report is structured as follows:
 
 - **Introduction:** Introduction to the project and significance.
@@ -143,7 +143,7 @@ Unity makes it easy to manipulate objects using the **Transform** component whic
 myAnimator.SetTrigger("WingFlap");
 ```
 
-<img src="P8.png" alt="unitytut-birdbody" style="zoom:50%;" />
+<img src=".\Materials\P8.png" alt="unitytut-birdbody" style="zoom:50%;" />
 
 <center>Fig 8: Bird Wing Down in Unity</center>
 
@@ -269,7 +269,7 @@ public class LogicStartScript : MonoBehaviour
 
 <img src=".\Materials\P23.png" alt="image-20241128164931270" style="zoom:30%;" />
 
-<center>Fig 11: Reinforcement Learning Framework</center>
+<center>Fig 12: Reinforcement Learning Framework</center>
 
 #### 2.2.1 Mathematical Concepts: Markov Chains, Markov Decision Processes (MDPs) , and Bellman Equation
 
@@ -277,7 +277,7 @@ This section deals with foundational concepts used in **decision-making under un
 
 <img src=".\Materials\P25.png" alt="image-20241128171918163" style="zoom:45%;" />
 
-<center>Fig 11: Stochastic Processes</center>
+<center>Fig 13: Stochastic Processes</center>
 
 A **stochastic process** is a collection of random variables indexed by time (or another parameter), representing a system or process that evolves over time in a **probabilistic manner**. **Unlike deterministic processes**, where future outcomes are fully determined by the initial conditions, stochastic processes incorporate randomness and uncertainty into their evolution.
 
@@ -291,7 +291,7 @@ A **Markov Chain** is a mathematical model used to describe a system that transi
 
 <img src=".\Materials\P24.png" alt="image-20241128171319133" style="zoom:50%;" />
 
-<center>Fig 11: Markov Chain and Transition Matrix</center>
+<center>Fig 14: Markov Chain and Transition Matrix</center>
 
 ###### (2) Transition Probabilities
 
@@ -370,7 +370,7 @@ print(f"Proportion of Rainy days: {rainy_proportion:.2f}")
 
 <img src=".\Materials\P27.png" alt="image-20241128185332559" style="zoom:35%;" />
 
-<center>Fig 11: Results for (1,1000), 20000, and 2000000 times </center>
+<center>Fig 15: Markov Chain Results for (1,1000), 20000, and 2000000 times </center>
 
 ##### (b) Markov Decision Process(MDPs)
 
@@ -384,7 +384,7 @@ The MDP framework is designed to provide a simplified representation of key elem
 
 <img src=".\Materials\P28.png" alt="image-20241128190608942" style="zoom:50%;" />
 
-<center>Fig 11: MDPs Framework</center>
+<center>Fig 16: MDPs Framework</center>
 
 - **States** (S): The set of all possible states the environment can be in.
 - **Actions** (a∈A): The set of all possible actions the agent can take and a is the specific action 
@@ -486,7 +486,7 @@ Understanding problem-solving algorithms is crucial for designing efficient rein
 
 <img src=".\Materials\P18.png" alt="image-20241128111522318" style="zoom:40%;" />
 
-<center>Fig 17: Hahaha</center>
+<center>Fig 18: Entertainment in Greedy Algorithm</center>
 
 ###### (1) Brief Introduction
 
@@ -496,7 +496,7 @@ The key idea behind a greedy algorithm is the assumption that **locally optimal 
 
 <img src=".\Materials\P17.png" alt="image-20241127233457442" style="zoom:100%;" />
 
-<center>Fig 17: Greedy Algorithm</center>
+<center>Fig 19: Greedy Algorithm</center>
 
 ###### (2)  General Structure
 
@@ -678,7 +678,7 @@ public:
 
 <img src=".\Materials\P19.png" alt="image-20241128121751610" style="zoom:50%;" />
 
-<center>Fig 17: Jump Game Problems</center>
+<center>Fig 20: Jump Game Problems</center>
 
 > You are given an integer array `nums`. You are initially positioned at the array's **first index**, and each element in the array represents your maximum jump length at that position.
 >
@@ -731,7 +731,7 @@ public:
 
 <img src=".\Materials\P20.png" alt="image-20241128125131751" style="zoom:67%;" />
 
-<center>Fig 17: Greedy Algorithm</center>
+<center>Fig 21: Greedy Algorithm</center>
 
 **Strengths**
 
@@ -766,13 +766,15 @@ In **Reinforcement Learning (RL)**, **greedy algorithms** are often used in deci
 
   - With probability **ϵ**, the agent selects a **random action** (exploration).
 
-<img src=".\P21.png" alt="image-20241128130354455" style="zoom:50%;" />
+<img src=".\Materials\P21.png" alt="image-20241128130354455" style="zoom:50%;" />
 
-<center>Fig 12: GA and Tradeoff</center>
+<center>Fig 22: GA and Tradeoff</center>
 
 While **pure greedy algorithms** don’t involve exploration, there are situations where greedy algorithms can be **modified** to introduce some form of exploration. This is often done to make the algorithm more flexible or to avoid getting **stuck in a suboptimal solution **(a local optimum).**A small epsilon** means the algorithm will mostly exploit the best-known option (greedy behavior), but with a small chance to explore new options.
 
 <img src=".\Materials\P22.png" alt="image-20241128131045698" style="zoom:40%;" />
+
+<center>Fig 23: ε-Greedy Algorithm</center>
 
 ##### (b) Dynamic Programming(DP): State Design, State Transition — Unknowns Derived from Known Values
 
@@ -780,7 +782,7 @@ While **pure greedy algorithms** don’t involve exploration, there are situatio
 
 <img src=".\Materials\P12.png" alt="image-20241127232505583" style="zoom:50%;" />
 
-<center>Fig 12: A Chinese man: Xun LU</center>
+<center>Fig 24: A Chinese man: Xun LU</center>
 
 ###### (1) Brief Introduction
 
@@ -807,7 +809,7 @@ While **pure greedy algorithms** don’t involve exploration, there are situatio
 
 <img src=".\Materials\P13.png" alt="image-20241127233457442" style="zoom:40%;" />
 
-<center>Fig 13: Dynamic Programming</center>
+<center>Fig 25: Dynamic Programming</center>
 
 ###### (2) Two Thought and Structure
 
@@ -816,7 +818,7 @@ While **pure greedy algorithms** don’t involve exploration, there are situatio
 
 <img src=".\Materials\P14.png" alt="image-20241127234123052" style="zoom:60%;" />
 
-<center>Fig 13: Two Structure of DP </center>
+<center>Fig 26: Two Structure of DP </center>
 
 ###### (3) Classical DP Problems
 
@@ -1049,9 +1051,9 @@ public:
 
 - 2). In greedy algorithm each local decision leads to an optimal solution for the entire problem whereas in dynamic programming solution to the main problem ***\*depends\**** on the ***\*overlapping subproblems\****.
 
-<img src=".\P15.png" alt="image-20241128104918108" style="zoom:50%;" />
+<img src=".\Materials\P15.png" alt="image-20241128104918108" style="zoom:50%;" />
 
-<center>Fig 15: How to solove Dynamic Programming Problems</center>
+<center>Fig 27: How to solove Dynamic Programming Problems</center>
 
 **How to Design States and State Transitions in DP**
 
@@ -1079,9 +1081,9 @@ The key to solving DP problems is designing the **state**, which represents a su
 
 ###### (5) DP and RL
 
-<img src=".\P16.png" alt="image-20241127233457442" style="zoom:6%;" />
+<img src=".\Materials\P16.png" alt="image-20241127233457442" style="zoom:6%;" />
 
-<center>Fig 16: RL and DP</center>
+<center>Fig 28: RL and DP</center>
 
 Both are rooted in **optimal decision-making**. Dynamic Programming (DP) shares fundamental concepts with **Reinforcement Learning (RL)**.
 
@@ -1092,13 +1094,9 @@ Both are rooted in **optimal decision-making**. Dynamic Programming (DP) shares 
 
 ##### (c) Monte Carlo Methods
 
-
-
 ##### (d) Temporal Difference (TD) Learning
 
 #### 2.2.3 Basics of Reinforcement Learning (Q-Learning and DQN)
-
-
 
 #### 2.2.4 Problem Definition and Goal of the RL Agent for Flappy Bird
 
@@ -1121,7 +1119,7 @@ The **state space** will consist of all possible combinations of these variables
 
 <img src=".\Materials\P30.png" alt="image-20241128104918108" style="zoom:50%;" />
 
-<center>Fig 16: State Space in game</center>
+<center>Fig 29: State Space in game</center>
 
 **Code**
 
@@ -1279,7 +1277,7 @@ Based on the problem definition and goal of the RL agent for **Flappy Bird** out
     - Define the **state space** SSS and the **action space** A.
   - **Q-Network Setup:**
 - Initialize the Q-Network Q(s,a;θ) with random weights θ.
-    
+  
     - Initialize the **target network** Q(s,a;θ-) with the same weights θ- =θ.
     
 - **Replay Memory Setup:**
@@ -1722,6 +1720,8 @@ for episode in range(max_episodes):
 
 <img src=".\Materials\P31.png" alt="image-20241129113154126" style="zoom:67%;" />
 
+<center>Fig 30: Reinforcement Learning Integrated Environment</center>
+
 #### 2.3.1   Configuring a Virtual Environment for Python
 
 A virtual environment isolates dependencies required for a specific project, ensuring that your Python setup does not conflict with other projects. This is a good practice when working with machine learning libraries and Python packages.
@@ -1762,45 +1762,189 @@ pip install mlagents
 
 **Objective:** Train the RL agent to play the game using the selected reinforcement learning algorithm.
 
+#### 2.4.1 Setup and Configuration
 
+**Training Parameter**
 
-### 2.5 Testing and Optimization
+```yaml
+behaviors:
+  FlappyBird:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 64
+      buffer_size: 2048
+      learning_rate: 3e-4
+      beta: 5e-3
+      epsilon: 0.2
+      lambd: 0.95
+      num_epoch: 3
+      learning_rate_schedule: linear
+      beta_schedule: constant
+      epsilon_schedule: linear
+    network_settings:
+      normalize: false
+      hidden_units: 128
+      num_layers: 2
+    reward_signals:
+        extrinsic:
+          strength: 1.0
+          gamma: 0.99
+        curiosity:
+          strength: 0.01
+          gamma: 0.99
+          encoding_size: 64
+    max_steps: 5000000
+    time_horizon: 64
+    summary_freq: 10000
+```
 
-**Objective:** Test and optimize the performance of the trained agent in the game environment.
+#### 2.4.2 Training Process
 
+<img src=".\Materials\P37.png" alt="image-20241204225448425" style="zoom:25%;" />
 
+<img src=".\Materials\P38.png" alt=" " style="zoom:35%;" />
 
+<center>Fig 31: Training Process</center>
 
+### 2.5 Testing 
+
+**Objective:** Test and the performance of the trained agent in the game environment.
+
+<img src=".\Materials\P39.png" alt="image-20241204232119691" style="zoom:40%;" />
+
+<center>Fig 33: Agent Test </center>
+
+---
+
+---
 
 ## 3 Results Analysis
 
 **Objective:** Analyze the training results and draw insights from the agent's performance.
 
-<img src=".\Materials\p32.png" alt="image-20241204205357406" style="zoom:50%;" />
+In reinforcement learning (RL), analyzing the results of training is crucial for understanding how well the agent has learned the desired behavior. Based on the variables—**cumulative reward**, **episode length**, **curiosity forward loss**, **policy loss**, and **value loss**—you can track and assess different aspects of your agent's performance. Let's break down what each of these metrics means and how you can interpret them:
 
+### **3.1 Cumulative Reward**
 
+**Definition**: This is the total reward the agent accumulates over an entire episode. In the context of training, the cumulative reward helps evaluate the effectiveness of the agent's learned policy.
+
+**Purpose**: The goal is to maximize cumulative rewards, which suggests that the agent is consistently making good decisions.
+
+**Trend Analysis**: Your cumulative reward steadily increases and stabilizes around 5000, which indicates that the agent is gradually learning to survive in the environment and accumulate rewards. This is generally a positive trend, suggesting that the agent is improving its performance over time.
+
+<img src=".\Materials\P32.png" alt="image-20241204205357406" style="zoom:50%;" />
+
+<center>Fig 34: Cumulative Reward</center>
+
+### 3.2 **Episode Length**
+
+- **Definition**: Episode length refers to how many timesteps (or frames) the agent survives before the episode ends. For example, in a Flappy Bird game, this would be how many frames the bird survives before it collides with an obstacle or goes out of bounds.
+- **Purpose**: Longer episodes usually indicate that the agent is learning to survive in the environment and is making progress toward mastering the task.
+- **Trend Analysis**: The increasing episode length indicates that the agent is surviving longer in the game, suggesting that it is learning to avoid obstacles and interact more effectively with the environment.
 
 <img src=".\Materials\P33.png" alt="image-20241204205547442" style="zoom:50%;" />
 
+<center>Fig 35: Episode Length</center>
 
+### 3.3 Curiosity Forward Loss
+
+- **Definition**: Curiosity-driven exploration involves using a model to measure how surprising or novel an observation is to the agent. **Curiosity forward loss** typically measures how well the agent’s curiosity model predicts the future state given the current state-action pair.
+- **Purpose**: In environments where intrinsic motivation (curiosity) is used, the agent is encouraged to explore the environment in search of novel states or situations.
+- **Trend Analysis**: Curiosity-based exploration generally helps the agent explore its environment and understand state transitions. The fact that the **Curiosity Forward Loss** drops quickly to 0 indicates that the agent has learned the environment well and is no longer relying on intrinsic motivation (curiosity) to explore.
 
 <img src=".\Materials\P34.png" alt="image-20241204205547442" style="zoom:50%;" />
 
+<center>Fig 36: Curiosity Forward Loss</center>
 
+### 3.4 **Policy Loss**
+
+- **Definition**: The policy loss measures how well the agent’s policy (i.e., the action-selection mechanism) performs. It is a measure of the difference between the predicted action probabilities (given the current state) and the actual actions taken, according to the agent’s learned policy.
+- **Purpose**: A lower policy loss means the agent's policy is becoming more accurate, and it is making better decisions based on its observations.
+- **Trend Analysis**: The policy loss decreasing over time indicates that the agent is refining its decision-making process, and its actions are increasingly aligned with the optimal policy. The final value of around 0.097 suggests that the agent's policy is fairly well optimized.
 
 <img src=".\Materials\P35.png" alt="image-20241204205547442" style="zoom:50%;" />
 
+<center>Fig 37: Policy Loss</center>
 
+### 3.5 **Value Loss**
+
+- **Definition**: Value loss measures the difference between the predicted value of a state (i.e., the expected future reward from that state) and the actual reward obtained after taking actions from that state.
+- **Purpose**: This is particularly important in value-based RL algorithms, like **Deep Q-Learning** or **A3C**, where the agent uses a value function to estimate the expected future reward from each state.
+- **Trend Analysis**: The value loss initially increases, which might suggest that the agent was learning to estimate future rewards inaccurately early on, but it gradually decreases to near 0, showing that the agent is now able to accurately predict future rewards.
 
 <img src=".\Materials\P36.png" alt="image-20241204205547442" style="zoom:50%;" />
 
+<center>Fig 38: Value Loss</center>
+
+### 3.6 High Variance in Results
+
+#### (1) Cause Analysis
+
+One of the significant points in Figure is the large variance in the metrics, especially with smoothing applied. This might be caused by situations where the agent encounters **"unavoidable" deaths** due to fast-moving pipes or other hard-to-avoid obstacles. 
+
+- **Unavoidable Deaths**: If the pipes move too quickly or spawn in such a way that the agent cannot avoid them (for example, when the Y-axis of the pipes changes too rapidly), the agent may experience episodes where it dies almost immediately, resulting in significant fluctuations in metrics.
+
+#### (2) Solutions
+
+**Hard-to-avoid situations**:
+
+Tweak the pipe generation mechanism to avoid scenarios where the bird is guaranteed to die no matter what action it takes. For instance:
+- **Pipe Spacing**: Adjust the gap size or the speed at which pipes move.
+- **Pipe Movement Smoothing**: Gradually introduce pipe height changes rather than abrupt movements to allow the agent to react more easily.
+
+**Curriculum Learning**:
+
+Consider using curriculum learning where you gradually increase the difficulty of the task. You could start by training the agent in an easier environment (e.g., slower-moving pipes or larger gaps) and slowly increase the difficulty as the agent’s performance improves.
+
+---
+
+---
+
 ## 4 Discussion
 
+### 4.1 Insights Gained
 
+**Exploration and Exploitation Balance**: One of the primary challenges in reinforcement learning is finding a balance between exploration (discovering new strategies) and exploitation (refining learned strategies). In the case of this project, the agent initially relied heavily on exploration, as indicated by the **Curiosity Forward Loss** decreasing rapidly. This was a sign that the agent had learned how to navigate the environment quickly. However, when the curiosity loss dropped too quickly, the agent's exploration phase ended prematurely, potentially causing the agent to miss out on suboptimal strategies that could have been useful. Proper tuning of the curiosity mechanism and reward structure is crucial for maintaining a good balance.
+
+**Reward Shaping and Its Impact**: Reward shaping played a pivotal role in guiding the agent's learning process. The agent was given positive rewards for surviving each frame and passing through pipes, and penalties for collisions with obstacles. However, the **Policy Loss** remained relatively high in the initial stages of training, suggesting that the agent’s policy was suboptimal early on. Over time, the policy improved, but refining the reward structure to encourage specific actions (like avoiding sudden drops or taking more efficient paths through pipes) could have expedited the learning process. Additionally, incorporating delayed rewards, such as rewarding the agent for anticipating upcoming obstacles, could further enhance the agent's long-term strategy.
+
+**Agent Convergence and Performance**: After sufficient training time, the agent showed signs of convergence, as reflected by the **Cumulative Reward** and **Episode Length** stabilizing. This indicates that the agent had learned to survive for longer periods and accumulate rewards, but it also highlighted a potential issue with overfitting the task. The agent seemed to have learned an effective but potentially non-robust strategy, where small variations in the environment (e.g., pipe spawning or speed) could cause a significant drop in performance. This highlights the importance of training the agent under various conditions and introducing randomization in the environment to promote generalization.
+
+<img src=".\Materials\P41.png" alt="image-20241205000437066" style="zoom:50%;" />
+
+<center>Fig 39: Agent and Environment</center>
+
+### 4.2 **Challenges Encountered**
+
+**Difficulty in Designing Robust Training Environments**: One of the main challenges was ensuring that the environment was both challenging and conducive to learning. Specifically, avoiding situations where the agent was bound to fail no matter its actions was difficult. This required iterative testing and tuning of the environment, such as adjusting the speed at which pipes moved or their vertical positioning. In some cases, pipe placement would result in situations where the agent could not avoid death, which artificially reduced its performance. This issue is common in RL, and careful design of the reward function and environment is necessary to prevent the agent from learning in unrealistic conditions.
+
+**Tuning Hyperparameters and Loss Functions**: Hyperparameter tuning was another challenge. Initially, the **Policy Loss** and **Value Loss** were high, indicating that the agent was not optimizing its decision-making process effectively. It required extensive trial and error to arrive at a set of parameters that resulted in the agent's performance improving. For instance, adjusting the learning rate, exploration parameters, and the strength of penalties for undesirable actions played a critical role in the agent's learning efficiency.
+
+**High Variance in Training Results**: As previously mentioned, the high variance in the training results was another key challenge. Although this is common in RL, it pointed to issues in how the environment was set up, particularly in terms of pipe placement and the potential for unavoidable deaths. The agent's performance fluctuated significantly, particularly when it encountered an environment configuration that led to an immediate failure. Smoothing techniques helped mitigate this variance to some extent, but the root cause of the variance still needed to be addressed by refining the environment further.
+
+---
+
+---
 
 ## 5 Conclusion
 
+In this project, we developed and trained a reinforcement learning (RL) agent to play a Flappy Bird-like game within the Unity environment using the **ML-Agents Toolkit**. The agent successfully learned to navigate through pipes, avoid obstacles, and optimize its survival strategy. The project demonstrated how RL can be applied to dynamic environments, with the agent progressively improving its performance over time.
 
+This project has potential applications in various fields where decision-making and adaptability are critical. Some potential applications include:
+
+- **End-to-End Learning Systems**: RL could power systems where agents learn directly from sensory inputs (such as vision or audio) to control actions, with applications ranging from AI assistants to manufacturing robots.
+- **Humanoid Robotics**: RL can enable robots to learn complex tasks through trial and error, improving their ability to perform in real-world environments.
+- **Autonomous Vehicles**: RL-based models could be used to teach self-driving cars to navigate complex traffic scenarios, optimize routes, and make real-time decisions.
+- **Game AI and NPCs**: In gaming, RL can be used to create more adaptive and intelligent non-playable characters (NPCs) that learn from player behavior.
+- **Industrial Automation**: RL can optimize workflows in industrial settings, such as predictive maintenance or automated assembly lines, by allowing machines to learn the most efficient operating strategies.
+
+Ultimately, the principles explored in this project—adapting to dynamic environments, improving decision-making through experience, and optimizing performance—have wide-ranging implications for a variety of industries and technologies.
+
+<img src=".\Materials\P40.png" alt="image-20241205000228081" style="zoom:40%;" />
+
+<center>Fig 40: Humaniod Robotics by Stanford HumanPlus</center>
+
+<div style="page-break-after:always"></div>
 
 ## 6 Reference
 
@@ -1817,64 +1961,48 @@ pip install mlagents
 11. Z. He, "Analysis on Deep Reinforcement Learning with Flappy Brid Gameplay," *2022 5th International Conference on Information and Computer Technologies (ICICT)*, New York, NY, USA, 2022, pp. 95-99, doi: 10.1109/ICICT55905.2022.00025.
 12. https://www.youtube.com/@GMTK
 
-
+<div style="page-break-after:always"></div>
 
 ## 7 Project Schedule
 
----
-
 ### **Day 1: 26/11/2024 (Tuesday) - Game Environment Setup and Basic Mechanics Design**
 
-- **Morning:**
-  - Conceptualize the project and design the **framework** for the Flappy Bird game.
-  - Define core game mechanics and how the environment should function.
-- **Afternoon:**
-  - Write the **Introduction** section of the report.
-- **Evening:**
-  - Finalize the **Unity environment setup** for the Flappy Bird game, implementing basic mechanics like physics, gravity, and jump force to establish the foundational game dynamics.
+- Conceptualize the project and design the **framework** for the Flappy Bird game.
+- Define core game mechanics and how the environment should function.
 
-------
+- Write the **Introduction** section of the report.
+
+- Finalize the **Unity environment setup** for the Flappy Bird game, implementing basic mechanics like physics, gravity, and jump force to establish the foundational game dynamics.
 
 ### **Day 2: 27/11/2024 (Wednesday) - Report Writing and RL Theory Exploration**
 
-- **Morning:**
-  - Write the **Game Development in Unity** section of the report.
-- **Afternoon:**
-  - Study the fundamentals of **Deep Q-Networks (DQN)** through educational resources on Bilibili.
-  - Explore how **reinforcement learning algorithms (such as DQN)** can be effectively applied to games like Flappy Bird to enhance gameplay through agent learning and decision-making.
-- **Evening:**
-  - Write the **Reinforcement Learning Setup** sections of the report.
-
----
+- Write the **Game Development in Unity** section of the report.
+- Study the fundamentals of **Deep Q-Networks (DQN)** through educational resources on Bilibili.
+- Explore how **reinforcement learning algorithms (such as DQN)** can be effectively applied to games like Flappy Bird to enhance gameplay through agent learning and decision-making.
+- Write the **Reinforcement Learning Setup** sections of the report.
 
 
 ### **Day 3: 28/11/2024 (Thursday) - Python-Unity Integration**
 
-- Morning:
-  - Implement Python-Unity communication using **Unity ML-Agents** or custom API calls.
-  - Set up the agent’s learning environment in Unity (using agent sensors for observation and actions).
-- Afternoon:
-  - Start integrating the Q-learning/DQN algorithm with the game.
-  - Define states (bird’s position, velocity, distance to pipes, etc.), actions (flap or do nothing), and rewards (score increment or game over).
+- Implement Python-Unity communication using **Unity ML-Agents** or custom API calls.
+- Set up the agent’s learning environment in Unity (using agent sensors for observation and actions).
+- Start integrating the Q-learning/DQN algorithm with the game.
+- Define states (bird’s position, velocity, distance to pipes, etc.), actions (flap or do nothing), and rewards (score increment or game over).
 
 ### **Day 4: 29/11/2024 (Friday) - Testing, Optimization, and Report Writing**
 
-- Morning:
-  - Test the training process and evaluate the agent’s performance in Unity.
-  - Debug and optimize the Python-Unity integration.
-- Afternoon:
-  - Begin analyzing the results (reward curves, agent’s learning curve, performance over time).
-  - Write the **Results** section of the report, focusing on agent performance.
+- Test the training process and evaluate the agent’s performance in Unity.
+- Debug and optimize the Python-Unity integration.
+- Begin analyzing the results (reward curves, agent’s learning curve, performance over time).
+- Write the **Results** section of the report, focusing on agent performance.
 
-### **Day 5-10: 30/11/2024 (Saturday) - Final Evaluation and Report Completion**
+### **Day 5-10: 30/11/2024 (Saturday)  - 3/12/2024 (Tuesday) - Final Evaluation and Report Completion**
 
-- **Morning:**
-  - Conduct final testing and assess the performance of the agent in the game environment.
-  - Explore additional improvements to the agent’s behavior (e.g., more complex exploration/exploitation strategies).
-- **Afternoon:**
-  - Finalize the **Discussion** and **Conclusion** sections of the report.
-  - Ensure the project meets all requirements and objectives.
-  - Submit the report and release the project.
+- Conduct final testing and assess the performance of the agent in the game environment.
+- Explore additional improvements to the agent’s behavior (e.g., more complex exploration/exploitation strategies).
+- Finalize the **Discussion** and **Conclusion** sections of the report.
+- Ensure the project meets all requirements and objectives.
+- Submit the report and release the project.
 
 
 
