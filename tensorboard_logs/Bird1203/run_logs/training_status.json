@@ -1,0 +1,65 @@
+{
+    "FlappyBird": {
+        "checkpoints": [
+            {
+                "steps": 3499989,
+                "file_path": "./tensorboard_logs\\Bird1203\\FlappyBird\\FlappyBird-3499989.onnx",
+                "reward": null,
+                "creation_time": 1733250281.4741132,
+                "auxillary_file_paths": [
+                    "./tensorboard_logs\\Bird1203\\FlappyBird\\FlappyBird-3499989.pt"
+                ]
+            },
+            {
+                "steps": 3999936,
+                "file_path": "./tensorboard_logs\\Bird1203\\FlappyBird\\FlappyBird-3999936.onnx",
+                "reward": null,
+                "creation_time": 1733252081.6489887,
+                "auxillary_file_paths": [
+                    "./tensorboard_logs\\Bird1203\\FlappyBird\\FlappyBird-3999936.pt"
+                ]
+            },
+            {
+                "steps": 4499979,
+                "file_path": "./tensorboard_logs\\Bird1203\\FlappyBird\\FlappyBird-4499979.onnx",
+                "reward": null,
+                "creation_time": 1733253881.9933827,
+                "auxillary_file_paths": [
+                    "./tensorboard_logs\\Bird1203\\FlappyBird\\FlappyBird-4499979.pt"
+                ]
+            },
+            {
+                "steps": 4999962,
+                "file_path": "./tensorboard_logs\\Bird1203\\FlappyBird\\FlappyBird-4999962.onnx",
+                "reward": null,
+                "creation_time": 1733255691.534498,
+                "auxillary_file_paths": [
+                    "./tensorboard_logs\\Bird1203\\FlappyBird\\FlappyBird-4999962.pt"
+                ]
+            },
+            {
+                "steps": 5000026,
+                "file_path": "./tensorboard_logs\\Bird1203\\FlappyBird\\FlappyBird-5000026.onnx",
+                "reward": null,
+                "creation_time": 1733255691.624125,
+                "auxillary_file_paths": [
+                    "./tensorboard_logs\\Bird1203\\FlappyBird\\FlappyBird-5000026.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 5000026,
+            "file_path": "./tensorboard_logs\\Bird1203\\FlappyBird.onnx",
+            "reward": null,
+            "creation_time": 1733255691.624125,
+            "auxillary_file_paths": [
+                "./tensorboard_logs\\Bird1203\\FlappyBird\\FlappyBird-5000026.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "2.5.1+cpu"
+    }
+}
